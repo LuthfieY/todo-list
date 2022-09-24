@@ -1,10 +1,15 @@
-# todo-list
+
+# Todo-List
+Tugas kolaborasi backend-frontend matakuliah Proyek 3
 
 ## Project setup
 ```
 npm install
 ```
-
+### Connect to database
+```
+npm run devStart
+```
 ### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -22,3 +27,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Authors
+
+- Backend: [@LuthfieY](https://www.github.com/LuthfieY) [211511019]
+- Frontend: Salma Aush [211511030]
+
