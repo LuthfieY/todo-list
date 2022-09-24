@@ -3,6 +3,9 @@ require('dotenv').config() // load .env file
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+var cors = require('cors')
+
+app.use(cors())
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
