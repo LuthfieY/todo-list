@@ -6,10 +6,7 @@ Tugas kolaborasi backend-frontend mata kuliah Proyek 3
 ```
 npm install
 ```
-### Connect to database
-```
-npm run devStart
-```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
