@@ -1,6 +1,6 @@
 
 # Todo-List
-Tugas kolaborasi backend-frontend matakuliah Proyek 3
+Tugas kolaborasi backend-frontend mata kuliah Proyek 3
 
 ## Project setup
 ```
