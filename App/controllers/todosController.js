@@ -1,10 +1,7 @@
-const express = require('express')
-const router = express.Router()
-const Todo = require('../models/todos.js') // import the Todo model
+const Todo = require('../models/todos.js')
 
-// getting all
-router.get('/', async (req, res) => {
-    try {
+const  getTodos =  (async(req, res) => {
+    try { 
         const todos = await Todo.find()
         res.json(todos) // send the todos as JSON
     } catch (err) {
@@ -12,13 +9,11 @@ router.get('/', async (req, res) => {
     }
 })
 
-// getting one
-router.get('/:id', getTodo, (req, res) => {
+const getTodo = ((req, res) => {
     res.json(res.todo) // send the todo as JSON
 })
 
-// creating one
-router.post('/', async (req, res) => {
+const createTodo = (async (req, res) => {
     const todo = new Todo({ // create a new Todo object
         task: req.body.task
     })
@@ -31,8 +26,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-// updating one
-router.patch('/:id', getTodo, async (req, res) => {
+const updateTodo = (async (req, res)=>{
     if (req.body.task != null) { // if the task is not null
         res.todo.task = req.body.task // set the task to the task in the request body
     }
@@ -43,9 +37,8 @@ router.patch('/:id', getTodo, async (req, res) => {
         res.status(400).json({ message: err.message })  
     }
 })
- 
-// deleting one
-router.delete('/:id', getTodo, async (req, res) => {
+
+const deleteTodo = (async (req, res) => {
     try {
         await res.todo.remove() // remove the todo from the database
         res.json({ message: 'Task deleted' })
@@ -55,8 +48,9 @@ router.delete('/:id', getTodo, async (req, res) => {
 })
 
 // middleware function to get a todo by ID
-async function getTodo(req, res, next) { 
+async function getTodoById(req, res, next) { 
     let todo
+
     try{
         todo = await Todo.findById(req.params.id) // find todo by the id in the URL
         if (todo == null) {
@@ -69,5 +63,11 @@ async function getTodo(req, res, next) {
     next()
 }
 
-
-module.exports = router
+module.exports = {
+    getTodos,
+    getTodo,
+    createTodo,
+    updateTodo,
+    deleteTodo,
+    getTodoById
+}

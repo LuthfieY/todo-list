@@ -5,7 +5,7 @@ const app = express()
 const mongoose = require('mongoose')
 var cors = require('cors')
 
-app.use(cors())
+app.use(cors()) // allow cross-origin requests
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
